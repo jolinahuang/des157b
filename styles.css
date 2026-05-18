@@ -1,0 +1,455 @@
+@font-face {
+    font-family: 'SK-Modernist';
+    src: url('fonts/sk-modernist-regular.woff2') format('woff2'),
+         url('fonts/sk-modernist-regular.woff') format('woff');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'SK-Modernist';
+    src: url('fonts/sk-modernist-bold.woff2') format('woff2'),
+         url('fonts/sk-modernist-bold.woff') format('woff');
+    font-weight: 700;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+    height: auto;
+}
+
+body {
+    background-color: #FFFAFB;
+    color: #130F0C;
+    font-family: 'Inter', sans-serif;
+    transition: background-color 0.5s ease, color 0.5s ease;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+}
+
+body.dark {
+    background-color: #000421;
+    color: #FFFEFA;
+}
+
+#container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#status-bar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 20px;
+    font-size: 12px;
+    font-weight: 400;
+    transition: color 0.6s ease;
+}
+
+.toggle {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 28px;
+}
+
+.toggle input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.toggle-slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #F1857B;
+    border-radius: 24px;
+    transition: background-color 0.4s ease;
+}
+
+body.dark .toggle-slider {
+    background-color: #C079CD;
+}
+
+.toggle-slider::before {
+    content: '';
+    position: absolute;
+    height: 22px;
+    width: 22px;
+    left: 3px;
+    bottom: 3px;
+    background-color: #FFFEFA;
+    border-radius: 50%;
+    transition: transform 0.4s ease;
+}
+
+.toggle input:checked + .toggle-slider::before {
+    transform: translateX(22px);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    padding: 0 20px;
+    margin-top: 16px;
+}
+
+#top-row {
+    display: grid;
+    grid-template-columns: 1fr 1.8fr 1fr;
+    gap: 16px;
+    height: 200px;
+}
+
+.card {
+    border-radius: 24px;
+    overflow: hidden;
+    background-color: #FFDFE8;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    transition: background-color 0.6s ease, box-shadow 0.6s ease;
+}
+
+body.dark .card {
+    background-color: #231D49;
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.25);
+}
+
+#course-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 28px 30px;
+}
+
+#course-card .card-label {
+    font-family: 'SK-Modernist', 'Inter', sans-serif;
+    font-size: 32px;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+#course-card .card-number {
+    font-family: 'SK-Modernist', 'Inter', sans-serif;
+    font-size: 80px;
+    font-weight: 700;
+    line-height: 1;
+    margin: 2px 0 12px;
+}
+
+#course-card .card-subtitle {
+    font-size: 14px;
+    line-height: 1.3;
+    transition: color 0.6s ease;
+}
+
+body.dark #course-card .card-subtitle {
+    color: #FFFEFA;
+}
+
+#banner-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #FFDFE8;
+    overflow: hidden;
+}
+
+body.dark #banner-card {
+    background-color: #231D49;
+}
+
+#banner-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+#photo-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#bottom-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.folder {
+    position: relative;
+    background-color: #FFDFE8;
+    border-radius: 16px;
+    padding: 16px;
+    aspect-ratio: 1 / 1;
+    width: 100%;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    transition: background-color 0.6s ease, box-shadow 0.6s ease;
+    margin-bottom: 24px;
+}
+
+body.dark .folder {
+    background-color: #231D49;
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.25);
+}
+
+.folder h3 {
+    text-align: center;
+    font-size: 14px;
+    font-weight: 400;
+    position: absolute;
+    bottom: -36px;
+    left: 0;
+    right: 0;
+    transition: color 0.6s ease;
+}
+
+body.dark .folder h3 {
+    color: #FFFEFA;
+}
+
+.folder-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+    list-style: none;
+}
+
+.folder-icon {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #FFFAFB;
+    border-radius: 12px;
+}
+
+body.dark .folder-icon {
+    background-color: #000421;
+}
+
+.folder-icon img {
+    height: 38px;
+    width: auto;
+    object-fit: contain;
+}
+
+.folder-expanded {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 450px;
+    height: 450px;
+    background-color: #FFDFE8;
+    border-radius: 24px;
+    padding: 24px 24px 24px;
+    z-index: 100;
+}
+
+body.dark .folder-expanded {
+    background-color: #231D49;
+}
+
+.folder-expanded.active {
+    display: block;
+    opacity: 1;
+    transform: translate(-50%, -50%);
+}
+
+.folder-expanded nav ul, .folder-expanded nav ol {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4px;
+}
+
+.folder-expanded nav li a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    text-decoration: none;
+    color: #130F0C;
+    padding: 10px 4px;
+    border-radius: 16px;
+    transition: background-color 0.25s ease, color 0.6s ease;
+}
+
+body.dark .folder-expanded nav li a {
+    color: #FFFAFB;
+}
+
+.folder-expanded nav li a:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+body.dark .folder-expanded nav li a:hover {
+    background-color: rgba(100, 70, 150, 0.3);
+}
+
+.folder-expanded nav li a img {
+    width: 85px;
+    height: 85px;
+    object-fit: contain;
+    border-radius: 16px;
+    background-color: #FFFAFB;
+    padding: 20px;
+}
+
+body.dark .folder-expanded nav li a img {
+    background-color: #000421;
+}
+
+.folder-expanded nav li a span {
+    font-size: 12px;
+    font-weight: 400;
+    text-align: center;
+    line-height: 2;
+}
+
+.folder-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    padding: 4px 8px;
+    transition: background-color 0.2s ease, color 0.6s ease;
+}
+
+body.dark .folder-close {
+    color: #FFFEFA;
+}
+
+#overlay-backdrop {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 90;
+    transition: opacity 0.35s ease;
+}
+
+#overlay-backdrop.active {
+    display: block;
+    opacity: 1;
+}
+
+#nav {
+    margin: 10px auto 0;
+    width: fit-content;
+    max-width: 320px;
+}
+
+#nav img {
+    width: 100%;
+    max-width: 320px;
+}
+
+
+/* mobile responsiveness*/
+@media (max-width: 768px) {
+    body {
+        padding: 12px;
+    }
+
+    main {
+        padding: 0 10px;
+        margin-top: -8px;
+    }
+
+    #top-row {
+        grid-template-columns: 1fr 1fr;
+        height: auto;
+        gap: 12px;
+    }
+
+    #course-card {
+        padding: 20px 22px;
+    }
+
+    #course-card .card-number {
+        font-size: 60px;
+    }
+
+    #course-card .card-label {
+        font-size: 20px;
+    }
+
+    #banner-card {
+        grid-column: 1 / -1;
+        order: -1;
+        height: 160px;
+    }
+
+    #photo-card {
+        height: 180px;
+    }
+
+    #bottom-row {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        margin-bottom: 8px;
+    }
+
+    .folder {
+        padding: 16px;
+        border-radius: 16px;
+        aspect-ratio: auto;
+        margin-bottom: 42px;
+    }
+
+    .folder-icon img {
+        height: 30px;
+    }
+
+    .folder-expanded {
+        width: 80vw;
+        height: auto;
+        max-height: 80vh;
+        padding: 24px 20px 20px;
+        border-radius: 24px;
+    }
+
+    .folder-expanded nav ul, .folder-expanded nav ol {
+        gap: 2px;
+    }
+
+    .folder-expanded nav li a img {
+        width: 60px;
+        height: 60px;
+        padding: 12px;
+        border-radius: 16px;
+    }
+
+    #nav img {
+        display: none;
+    }
+}

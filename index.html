@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>DES157B Portal</title>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link href="styles.css" rel="stylesheet">
+    <script src="script.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <div id="container">
+        <div id="status-bar">
+            <time id="status-date"></time>
+            <time id="status-time"></time>
+            <label id="toggle" class="toggle">
+                <input type="checkbox" id="mode-switch">
+                <span class="toggle-slider"></span>
+            </label>
+        </div>
+
+        <main>
+            <!-- top row of widgets -->
+            <div id="top-row">
+                <article id="course-card" class="card">
+                    <span class="card-label">DES</span>
+                    <span class="card-number">157B</span>
+                    <span class="card-subtitle">Interactive Media III | Spring 2026</span>
+                </article>
+
+                <article id="banner-card" class="card">
+                    <img src="images/doodles_light.png" data-light="images/doodles_light.png" data-dark="images/doodles_dark.png" alt="banner with doodles">
+                </article>
+
+                <article id="photo-card" class="card">
+                    <img src="images/pfp_light.png" data-light="images/pfp_light.png" data-dark="images/pfp_dark.png" alt="profile photo">
+                </article>
+            </div>
+            
+            <!-- bottom row of widgets -->
+            <div id="bottom-row">
+                <section id="projects" class="folder">
+                    <ul class="folder-grid">
+                        <li class="folder-icon">
+                            <img src="images/tulip_light.png" data-light="images/tulip_light.png" data-dark="images/tulip_dark.png" alt="tulip icon">
+                        </li>
+                        <li class="folder-icon">
+                            <img src="images/tulip_light.png" data-light="images/tulip_light.png" data-dark="images/tulip_dark.png" alt="tulip icon">
+                        </li>
+                        <li class="folder-icon">
+                            <img src="images/tulip_light.png" data-light="images/tulip_light.png" data-dark="images/tulip_dark.png" alt="tulip icon">
+                        </li>
+                        <li class="folder-icon">
+                            <img src="images/tulip_light.png" data-light="images/tulip_light.png" data-dark="images/tulip_dark.png" alt="tulip icon">
+                        </li>
+                    </ul>
+
+                    <h3>Ministudios & Toolkit</h3>
+
+                    <aside class="folder-expanded" id="projects-expanded">
+                        <nav>
+                            <ol>
+                                <li>
+                                    <a href="#">
+                                        <img src="images/tulip_light.png" data-light="images/tulip_light.png" data-dark="images/tulip_dark.png" alt="tulip icon">
+                                        <span>Blockbuster Video</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <img src="images/tulip_light.png" data-light="images/tulip_light.png" data-dark="images/tulip_dark.png" alt="tulip icon">
+                                        <span>Check Yourself</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <img src="images/tulip_light.png" data-light="images/tulip_light.png" data-dark="images/tulip_dark.png" alt="tulip icon">
+                                        <span>Library Liberty</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <img src="images/tulip_light.png" data-light="images/tulip_light.png" data-dark="images/tulip_dark.png" alt="tulip icon">
+                                        <span>Friends List</span>
+                                    </a>
+                                </li>
+                            </ol>
+                        </nav>
+                        <button class="folder-close">&times;</button>
+                    </aside>
+                </section>
+
+                <section id="research" class="folder">
+                    <ul class="folder-grid">
+                        <li class="folder-icon">
+                            <img src="images/bow_light.png" data-light="images/bow_light.png" data-dark="images/bow_dark.png" alt="bow icon">
+                        </li>
+                        <li class="folder-icon">
+                            <img src="images/bow_light.png" data-light="images/bow_light.png" data-dark="images/bow_dark.png" alt="bow icon">
+                        </li>
+                        <li class="folder-icon">
+                            <img src="images/bow_light.png" data-light="images/bow_light.png" data-dark="images/bow_dark.png" alt="bow icon">
+                        </li>
+                        <li class="folder-icon">
+                            <img src="images/bow_light.png" data-light="images/bow_light.png" data-dark="images/bow_dark.png" alt="bow icon">
+                        </li>
+                        <li class="folder-icon">
+                            <img src="images/bow_light.png" data-light="images/bow_light.png" data-dark="images/bow_dark.png" alt="bow icon">
+                        </li>
+                    </ul>
+
+                    <h3>Research</h3>
+
+                    <aside class="folder-expanded" id="research-expanded">
+                        <nav>
+                            <ul>
+                                <li>
+                                    <a href="#">
+                                        <img src="images/bow_light.png" data-light="images/bow_light.png" data-dark="images/bow_dark.png" alt="bow icon">
+                                        <span>Brainstorm</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <img src="images/bow_light.png" data-light="images/bow_light.png" data-dark="images/bow_dark.png" alt="bow icon">
+                                        <span>Comparative Analysis</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <img src="images/bow_light.png" data-light="images/bow_light.png" data-dark="images/bow_dark.png" alt="bow icon">
+                                        <span>Bibliography</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <img src="images/bow_light.png" data-light="images/bow_light.png" data-dark="images/bow_dark.png" alt="bow icon">
+                                        <span>Feasibility Report</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <img src="images/bow_light.png" data-light="images/bow_light.png" data-dark="images/bow_dark.png" alt="bow icon">
+                                        <span>Usability Results</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                        <button class="folder-close">&times;</button>
+                    </aside>
+                </section>
+
+                <section id="development" class="folder">
+                    <ul class="folder-grid">
+                        <li class="folder-icon">
+                            <img src="images/strawberry_light.png" data-light="images/strawberry_light.png" data-dark="images/strawberry_dark.png" alt="strawberry icon">
+                        </li>
+                        <li class="folder-icon">
+                            <img src="images/strawberry_light.png" data-light="images/strawberry_light.png" data-dark="images/strawberry_dark.png" alt="strawberry icon">
+                        </li>
+                        <li class="folder-icon">
+                            <img src="images/strawberry_light.png" data-light="images/strawberry_light.png" data-dark="images/strawberry_dark.png" alt="strawberry icon">
+                        </li>
+                        <li class="folder-icon">
+                            <img src="images/strawberry_light.png" data-light="images/strawberry_light.png" data-dark="images/strawberry_dark.png" alt="strawberry icon">
+                        </li>
+                        <li class="folder-icon">
+                            <img src="images/strawberry_light.png" data-light="images/strawberry_light.png" data-dark="images/strawberry_dark.png" alt="strawberry icon">
+                        </li>
+                        <li class="folder-icon">
+                            <img src="images/strawberry_light.png" data-light="images/strawberry_light.png" data-dark="images/strawberry_dark.png" alt="strawberry icon">
+                        </li>
+                        <li class="folder-icon">
+                            <img src="images/strawberry_light.png" data-light="images/strawberry_light.png" data-dark="images/strawberry_dark.png" alt="strawberry icon">
+                        </li>
+                        <li class="folder-icon">
+                            <img src="images/strawberry_light.png" data-light="images/strawberry_light.png" data-dark="images/strawberry_dark.png" alt="strawberry icon">
+                        </li>
+                    </ul>
+
+                    <h3>Development</h3>
+
+                    <aside class="folder-expanded" id="development-expanded">
+                        <nav>
+                            <ul>
+                                <li>
+                                    <a href="#">
+                                        <img src="images/strawberry_light.png" data-light="images/strawberry_light.png" data-dark="images/strawberry_dark.png" alt="strawberry icon">
+                                        <span>Proposal</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <img src="images/strawberry_light.png" data-light="images/strawberry_light.png" data-dark="images/strawberry_dark.png" alt="strawberry icon">
+                                        <span>Sketches</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <img src="images/strawberry_light.png" data-light="images/strawberry_light.png" data-dark="images/strawberry_dark.png" alt="strawberry icon">
+                                        <span>Usability Test</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <img src="images/strawberry_light.png" data-light="images/strawberry_light.png" data-dark="images/strawberry_dark.png" alt="strawberry icon">
+                                        <span>User Flows</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <img src="images/strawberry_light.png" data-light="images/strawberry_light.png" data-dark="images/strawberry_dark.png" alt="strawberry icon">
+                                        <span>Design Progress</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <img src="images/strawberry_light.png" data-light="images/strawberry_light.png" data-dark="images/strawberry_dark.png" alt="strawberry icon">
+                                        <span>Version 2</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <img src="images/strawberry_light.png" data-light="images/strawberry_light.png" data-dark="images/strawberry_dark.png" alt="strawberry icon">
+                                        <span>Lo-fi Sketches</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <img src="images/strawberry_light.png" data-light="images/strawberry_light.png" data-dark="images/strawberry_dark.png" alt="strawberry icon">
+                                        <span>Version 1</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                        <button class="folder-close">&times;</button>
+                    </aside>
+                </section>
+
+                <section id="capstone" class="folder">
+                    <ul class="folder-grid">
+                        <li class="folder-icon">
+                            <img src="images/button_light.png" data-light="images/button_light.png" data-dark="images/button_dark.png" alt="flower icon">
+                        </li>
+                        <li class="folder-icon">
+                            <img src="images/button_light.png" data-light="images/button_light.png" data-dark="images/button_dark.png" alt="flower icon">
+                        </li>
+                    </ul>
+
+                    <h3>Capstone</h3>
+
+                    <aside class="folder-expanded" id="capstone-expanded">
+                        <nav>
+                            <ul>
+                                <li>
+                                    <a href="#">
+                                        <img src="images/button_light.png" data-light="images/button_light.png" data-dark="images/button_dark.png" alt="flower icon">
+                                        <span>Case Study</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <img src="images/button_light.png" data-light="images/button_light.png" data-dark="images/button_dark.png" alt="flower icon">
+                                        <span>Project</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                        <button class="folder-close">&times;</button>
+                    </aside>
+                </section>
+            </div>
+        </main>
+
+        <!-- nav bar -->
+        <footer id="nav">
+            <img src="images/navBar_light.png" alt="navigation bar" data-light="images/navBar_light.png" data-dark="images/navBar_dark.png">
+        </footer>
+
+    </div>
+    <!-- widget folder overlay backdrop -->
+    <div id="overlay-backdrop"></div>
+</body>
+</html>
