@@ -1,7 +1,6 @@
 @font-face {
     font-family: 'SK-Modernist';
-    src: url('fonts/sk-modernist-bold.woff2') format('woff2'),
-         url('fonts/sk-modernist-bold.woff') format('woff');
+    src: url('fonts/Sk-Modernist-Regular.otf') format('opentype');
 }
 
 * {
