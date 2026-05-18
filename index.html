@@ -11,14 +11,15 @@
 
     <link href="styles.css" rel="stylesheet">
     <script src="script.js" defer></script>
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
     <div id="container">
         <div id="status-bar">
-            <time id="status-date"></time>
-            <time id="status-time"></time>
+            <span id="status-date"></span>
+            <span id="status-time"></span>
             <label id="toggle" class="toggle">
                 <input type="checkbox" id="mode-switch">
                 <span class="toggle-slider"></span>
@@ -28,19 +29,21 @@
         <main>
             <!-- top row of widgets -->
             <div id="top-row">
-                <article id="course-card" class="card">
-                    <span class="card-label">DES</span>
-                    <span class="card-number">157B</span>
+                <section id="course-card" class="card">
+                    <h1 class="card-label">Jolina Huang</h1>
+                    <span class="card-number">DES157B</span>
                     <span class="card-subtitle">Interactive Media III | Spring 2026</span>
-                </article>
+                </section>
 
-                <article id="banner-card" class="card">
+                <section id="banner-card" class="card">
+                    <h2 class="visually-hidden">Banner</h2>
                     <img src="images/doodles_light.png" data-light="images/doodles_light.png" data-dark="images/doodles_dark.png" alt="doodles banner">
-                </article>
+                </section>
 
-                <article id="photo-card" class="card">
+                <section id="photo-card" class="card">
+                    <h2 class="visually-hidden">Profile Photo</h2>
                     <img src="images/pfp_light.png" data-light="images/pfp_light.png" data-dark="images/pfp_dark.png" alt="profile photo">
-                </article>
+                </section>
             </div>
             
             <!-- bottom row of widgets -->

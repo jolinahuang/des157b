@@ -8,7 +8,7 @@
     function updateClock() {
         const now = new Date();
 
-        // formats data and time
+        // formats date and time
         const dateStr = now.toLocaleDateString('en-US', {
             timeZone: 'America/Los_Angeles',
             weekday: 'short',
@@ -22,6 +22,7 @@
             minute: '2-digit',
             hour12: true
         });
+
         statusDate.textContent = dateStr;
         statusTime.textContent = timeStr;
     }
@@ -98,33 +99,3 @@
         }
     }
 })();
-
-(function() {
-    'use strict';
-
-    const button = document.querySelector('button');
-    const body = document.querySelector('body');
-    const banner = document.querySelector('#banner');
-    const sections = document.querySelectorAll('section')
-    let mode = 'dark';
-
-    button.addEventListener('click', function() {
-        if (mode === 'dark') {
-            body.className = 'switch';
-            banner.className = 'switch';
-            button.className = 'switch';
-            for (const section of sections) {
-                section.className = 'switch';
-            }
-            mode = 'light';
-        } else {
-            body.removeAttribute('class');
-            banner.removeAttribute('class');
-            button.removeAttribute('class');
-            for (const section of sections) {
-                section.removeAttribute('class');
-            }
-            mode = 'dark'
-        }
-    })
-})()
