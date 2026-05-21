@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capstone Proposal</title>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <link href="styles.css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <h1>CAPSTONE PROPOSAL</h1>
+    </header>
+
+    <main>
+        <article>
+            <h2>Topic</h2>
+            <p>
+                My capstone project will be an interactive experience that uses your webcam and computer vision to turn your hands into a piano. I've played piano my whole life, so I wanted to explore how this instrument might change as AI and computer vision becomes more and more prominent in our society. Additionally, a piano can cost hundreds to thousands of dollars, and most kids around the world don't have access to formal music education. So, some of the questions I'm considering are: What happens when that barrier goes away? If anyone can make music with their hands and a device, how will musical advancements evolve as time goes on?
+            </p>
+        </article>
+
+        <article>
+            <h2>Lenses</h2>
+            <p>
+                The main lens my topic will rely on is speculative design. My idea challenges how people may view music because most of them assume that you need an instrument to create it, but this experience will let you feel otherwise. It'll let users play a piano by solely moving their fingers, and will be followed by a survey where users can answer questions about how AI may impact the music industry. Their responses will add onto the live statistics for each next user to see.
+            </p>
+        </article>
+
+        <article>
+            <h2>Features, Interactions, and Libraries</h2>
+            <p>
+                This project will feature an air piano, where the <a href="https://developers.google.com/mediapipe/solutions/vision/hand_landmarker">MediaPipe Hands</a> library will track your fingers through the webcam and the <a href="https://tonejs.github.io/">Tone.js</a> library plays piano sounds when you raise or curl them. The visuals for this interaction will likely be rendered with Canvas API or <a href="https://p5js.org/">p5.js</a>. There will also be an animated scroll survey where questions will fade in one at a time, starting with how the experience felt and feature speculative questions about what music looks like in the future. Once users finish answering each question, the percentage breakdown from previous visitors will appear.
+            </p>
+        </article>
+
+        <article>
+            <h2>Challenges and Ideas</h2>
+            <p>
+                I think that the hardest part of developing this user experience will be the finger detection logic. MediaPipe provides joint coordinates but I'll have to figure out whether a finger is up or down, which could be difficult in considering different hand sizes and camera angles. I'll also need a fallback option for users without webcams or who aren't comfortable with allowing the site to gain access to their webcam. I'll most likely film a pre-recorded demo to demonstrate the air piano features.
+            </p>
+        </article>
+
+        <article>
+            <h2>Target Audience</h2>
+            <p>
+                My target audience is young adults (18–30 year olds) who are interested in how AI is changing creative fields, whether they're musicians themselves or not. More specifically, I want to target students in tech who value accessibility and equity but haven't thought about it as much in terms of the musical field. I think that people who have and have not already played the piano will bring impactful and varying perspectives to this overall experience. I want users to reflect on what they gain and lose when technology lowers the barrier to creative expression.
+            </p>
+        </article>
+    </main>
+</body>
+</html>
