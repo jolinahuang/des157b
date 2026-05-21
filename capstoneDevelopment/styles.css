@@ -20,11 +20,11 @@ header h1 {
 main {
     max-width: 600px;
     margin: 0 auto;
-    padding: 0 1.5rem;
+    padding: 0 1rem;
 }
 
 article {
-    margin-bottom: 6rem;
+    margin-bottom: 4rem;
 }
 
 h2 {
