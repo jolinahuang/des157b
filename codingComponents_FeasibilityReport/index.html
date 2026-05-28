@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Components & Feasibility Report</title>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <link href="styles.css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <h1>Coding Components & Feasibility Report</h1>
+    </header>
+
+    <main>
+        <article>
+            <h2>Features</h2>
+            <p>
+                I plan to build out an air piano simulation using webcam hand tracking, an animated scroll survey with live survey response statistics, and a pre-recorded video demo as a fallback for users without webcams or who don't feel comfortable allowing camera access.
+            </p>
+        </article>
+
+        <article>
+            <h2>Technologies</h2>
+            <p>
+                I plan on using the MediaPipe Hands library for finger joint tracking and detection, which will use 21 hand landmarks per hand to determine whether a user's fingers are raised or curled. I'll use the Tone.js library for generating piano sounds triggered by finger movement. Additionally, I'll use either the Canvas API or p5.js for rendering the hand skeleton overlay. I'll probably use Firebase or Supabase for storing and retrieving live survey response data. Lastly, I'll be using HTML, CSS, and JavaScript for the scroll-based survey with fade-in animations.
+            </p>
+        </article>
+
+        <article>
+            <h2>Skill Assessment</h2>
+            <p>
+                I'm comfortable with HTML, CSS, and JavaScript. Canvas API, p5.js, MediaPipe, and Tone.js are all new to me, but each library has accessible documentation with live demos and code samples that I can reference while building. Firebase/Supabase are also new, but I only need basic read/write functionality for storing survey responses, which seems to be covered well in their getting started guides. I'm feeling confident that I can learn everything I need within the project timeline.
+            </p>
+        </article>
+
+        <article>
+            <h2>Difficulties</h2>
+            <p>
+                I think that the biggest challenge will be developing the finger detection logic. MediaPipe provides 21 joint coordinates per hand, but determining whether a finger is raised or curled requires custom threshold logic that could vary across hand sizes and camera angles. If hand tracking ends up being too unreliable, I might need to simplify to fewer fingers or add a click/tap fallback alongside the tracking. I'll also need to carefully adjust Tone.js so that the sounds getting triggered will sound clean without overlapping with one another.
+            </p>
+        </article>
+    </main>
+</body>
+</html>
