@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invisible Keys</title>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link href="styles.css" rel="stylesheet">
+
+    <!-- mediapipe hand tracking -->
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
+
+    <!-- tone.js for piano sounds -->
+    <script src="https://cdn.jsdelivr.net/npm/tone@14.7.77/build/Tone.js"></script>
+
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <!-- usability test overlay -->
+    <div id="test-overlay" class="overlay active">
+        <div class="overlay-content">
+            <h2>Welcome to Invisible Keys</h2>
+            <p>
+                You're a college student interested in how AI is changing creative fields. A friend sent you this link and said you have to try it. You've never played piano before but you're curious. Open the experience and go through it like you normally would, then answer the survey questions at the end.
+            </p>
+            <button class="button primary" id="button-start-test">Got it, let's go</button>
+        </div>
+    </div>
+
+    <!-- intro/landing screen -->
+    <section id="intro" class="screen active">
+        <h1>What if you never needed an instrument?</h1>
+        <p class="description">
+            This simulation allows you to rethink what piano playing could look like using just your webcam and hands.
+        </p>
+        <div class="button-group">
+            <button class="button primary" id="button-try">Try it out &rarr;</button>
+            <button class="button secondary" id="button-watch-demo">Watch demo</button>
+        </div>
+        <p class="footnote">
+            <span><i class="fa-solid fa-video"></i> Webcam recommended</span>
+            <span><i class="fa-solid fa-headphones"></i> Sound on</span>
+        </p>
+    </section>
+
+    <!-- allow camera access? -->
+    <section id="camera-access" class="screen">
+        <h2>Allow camera access?</h2>
+        <p class="description">
+            Your camera will be used to track your hand movements. Nothing will be recorded or leave your browser. If you're not comfortable with this, you can watch an air piano demo video instead.
+        </p>
+        <div class="button-group">
+            <button class="button primary" id="button-allow-camera">Yes, allow camera</button>
+            <button class="button secondary" id="button-no-demo">No, watch demo</button>
+        </div>
+    </section>
+
+    <!-- how to play instructions -->
+    <section id="how-to-play" class="screen">
+        <h2>How to play</h2>
+        <div class="instructions">
+            <div class="instruction-step">
+                <div class="instruction-image">
+                    <!-- placeholder for step 1 image -->
+                </div>
+                <p class="instruction-number">01</p>
+                <h3>Hold both hands up</h3>
+                <p>Face your palms toward the camera, about an arm's length away.</p>
+            </div>
+
+            <div class="instruction-step">
+                <div class="instruction-image">
+                    <!-- placeholder for step 2 image -->
+                </div>
+                <p class="instruction-number">02</p>
+                <h3>Curl a finger down</h3>
+                <p>Each finger matches a key from C across both hands.</p>
+            </div>
+
+            <div class="instruction-step">
+                <div class="instruction-image">
+                    <!-- placeholder for step 3 image -->
+                </div>
+                <p class="instruction-number">03</p>
+                <h3>Listen</h3>
+                <p>A note plays for as long as your finger stays curled.</p>
+            </div>
+        </div>
+        <button class="button primary" id="button-ready">I'm ready &rarr;</button>
+    </section>
+
+    <!-- play around with air piano -->
+    <section id="piano" class="screen">
+        <div class="piano-container">
+            <video id="webcam" autoplay playsinline></video>
+            <canvas id="hand-canvas"></canvas>
+            <div class="piano-keys">
+                <div class="key">C</div>
+                <div class="key">D</div>
+                <div class="key">E</div>
+                <div class="key">F</div>
+                <div class="key">G</div>
+                <div class="key">A</div>
+                <div class="key">B</div>
+                <div class="key">C</div>
+                <div class="key">D</div>
+                <div class="key">E</div>
+            </div>
+        </div>
+        <button class="button primary" id="button-done">Done &darr;</button>
+    </section>
+
+    <!-- air piano demo video -->
+    <section id="piano-demo" class="screen">
+        <h2>Demo of air piano</h2>
+        <div class="demo-video-container">
+            <!-- pre-recorded demo video goes here -->
+            <video id="demo-video" controls>
+                <source src="videos/demo.mp4" type="video/mp4">
+            </video>
+            <div class="piano-keys demo-keys">
+                <div class="key">C</div>
+                <div class="key">D</div>
+                <div class="key">E</div>
+                <div class="key">F</div>
+                <div class="key">G</div>
+                <div class="key">A</div>
+                <div class="key">B</div>
+                <div class="key">C</div>
+                <div class="key">D</div>
+                <div class="key">E</div>
+            </div>
+        </div>
+
+        <div class="button-group">
+            <button class="button primary" id="button-continue-survey">Continue to survey &rarr;</button>
+            <button class="button secondary" id="button-try-piano">Try air piano</button>
+        </div>
+    </section>
+
+    <!-- survey intro -->
+    <section id="survey-intro" class="screen">
+        <h2>What will music become in the future?</h2>
+        <p class="description">
+            Take a moment to reflect on what you just experienced and compare your perspective to everyone else's.
+        </p>
+        <button class="button primary" id="button-begin-survey">Begin &darr;</button>
+    </section>
+
+    <!-- survey questions -->
+    <section id="survey" class="screen">
+        <div class="survey-question" data-question="1">
+            <p class="question-number">Question 1/6</p>
+            <h3>Have you ever played a real piano before?</h3>
+            <div class="answer-options">
+                <button class="answer-button">Yes, for most of my life</button>
+                <button class="answer-button">I started learning recently</button>
+                <button class="answer-button">I've tried it a few times</button>
+                <button class="answer-button">Never</button>
+            </div>
+        </div>
+
+        <div class="survey-question" data-question="2">
+            <p class="question-number">Question 2/6</p>
+            <h3>Did moving your hands just now feel like playing music or just moving your fingers?</h3>
+            <div class="answer-options">
+                <button class="answer-button">It felt like playing music</button>
+                <button class="answer-button">It started to feel like playing music</button>
+                <button class="answer-button">It felt more like a simulation</button>
+                <button class="answer-button">It just felt like moving my fingers</button>
+            </div>
+        </div>
+
+        <div class="survey-question" data-question="3">
+            <p class="question-number">Question 3/6</p>
+            <h3>If a child who can't afford a piano learns to play this way, is that still a real musical education?</h3>
+            <div class="answer-options">
+                <button class="answer-button">Absolutely</button>
+                <button class="answer-button">It's a good start</button>
+                <button class="answer-button">It's better than nothing</button>
+                <button class="answer-button">Not really</button>
+            </div>
+        </div>
+
+        <div class="survey-question" data-question="4">
+            <p class="question-number">Question 4/6</p>
+            <h3>When AI makes it possible for anyone to create music, what happens to the people who spent years learning the traditional way?</h3>
+            <div class="answer-options">
+                <button class="answer-button">Their skill becomes even more valuable</button>
+                <button class="answer-button">Both paths can coexist</button>
+                <button class="answer-button">It devalues what they learned</button>
+                <button class="answer-button">I'm not too sure</button>
+            </div>
+        </div>
+
+        <div class="survey-question" data-question="5">
+            <p class="question-number">Question 5/6</p>
+            <h3>If the music sounds the same whether you use a piano or your hands in the air, does the instrument still matter?</h3>
+            <div class="answer-options">
+                <button class="answer-button">Yes, the instrument is a part of the art</button>
+                <button class="answer-button">It matters but less than I thought</button>
+                <button class="answer-button">It's starting to not matter</button>
+                <button class="answer-button">No, only the music matters</button>
+            </div>
+        </div>
+
+        <div class="survey-question" data-question="6">
+            <p class="question-number">Question 6/6</p>
+            <h3>Do you think that technology like this brings people closer to music or further from it?</h3>
+            <div class="answer-options">
+                <button class="answer-button">Much closer</button>
+                <button class="answer-button">Closer but something is missing</button>
+                <button class="answer-button">It depends on the person</button>
+                <button class="answer-button">Further from it</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- survey results -->
+    <section id="survey-results" class="screen">
+        <p class="label">Survey Results</p>
+        <h2>Here's how everyone else answered</h2>
+        <div class="results-container">
+            <!-- results bars will be populated by js from firebase/supabase -->
+        </div>
+    </section>
+
+    <!-- ending -->
+    <section id="ending" class="screen">
+        <p class="label">The End</p>
+        <h2>Thank you for being a part of this experience!</h2>
+        <p class="description">
+            Your perspective has been added to the conversation. Come back later and see how things have changed.
+        </p>
+        <button class="button primary" id="button-play-again">Play again</button>
+    </section>
+</body>
+</html>
