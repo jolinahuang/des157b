@@ -1,0 +1,342 @@
+@font-face {
+    font-family: 'bickham-script-pro';
+    src: url('fonts/Bickham Script Pro Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: italic;
+  }
+  
+  @font-face {
+    font-family: 'bickham-script-pro';
+    src: url('fonts/Bickham Script Pro Semibold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: italic;
+  }
+  
+  @font-face {
+    font-family: 'bickham-script-pro';
+    src: url('fonts/Bickham Script Pro Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: italic;
+  }
+  
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: #FFFEFB;
+    color: #130F0C;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  
+  .wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .site-header {
+    width: 1100px;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 12px;
+  }
+  
+  .eyebrow {
+    font-family: 'bickham-script-pro', 'Cormorant Garamond', Georgia, serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 16px;
+    letter-spacing: 0.01em;
+    color: rgba(14, 127, 218, 0.8);
+    line-height: 0.8;
+  }
+  
+  .site-header h1 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    line-height: 1;
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+  }
+  
+  .h1-month {
+    font-size: 60px;
+    font-weight: 500;
+    color: #130F0C;
+    letter-spacing: -0.01em;
+  }
+  
+  .h1-year {
+    font-size: 60px;
+    font-weight: 500;
+    color: #0E7FDA;
+    letter-spacing: -0.02em;
+  }
+  
+  main {
+    width: 1100px;
+    height: 600px;
+    flex-shrink: 0;
+  }
+  
+  .calendar {
+    width: 1100px;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    background: #F0EDE8;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid #D6DFE6;
+  }
+  
+  .calendar-header {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    background: #0a5fa3;
+    padding: 9px 0;
+    flex-shrink: 0;
+  }
+  
+  .calendar-header span {
+    text-align: center;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 9px;
+    font-weight: 400;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(240, 237, 232, 0.65);
+  }
+  
+  .calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    flex: 1;
+    min-height: 0;
+  }
+  
+  .day-cell {
+    border-right: 1px solid #cdd6dc;
+    border-bottom: 1px solid #cdd6dc;
+    padding: 4px 6px 8px;
+    position: relative;
+    background: #FFFEFB;
+    transition: background 0.2s ease;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  
+  .day-cell:nth-child(7n) {
+    border-right: none;
+  }
+  
+  .day-cell:nth-last-child(-n+7) {
+    border-bottom: none;
+  }
+  
+  .day-cell.empty {
+    background: #F0EDE8;
+  }
+  
+  .day-cell.has-moment {
+    cursor: pointer;
+    background: #ffffff;
+  }
+  
+  .day-cell.has-moment:hover {
+    background: rgba(14, 127, 218, 0.07);
+    z-index: 1;
+  }
+  
+  .day-cell.has-moment:hover .moment-thumb {
+    transform: scale(1.04);
+    box-shadow: 0 8px 28px rgba(62, 96, 112, 0.24);
+  }
+  
+  .day-number {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 12px;
+    font-weight: 400;
+    color: #130F0C;
+    line-height: 1;
+    display: block;
+    flex-shrink: 0;
+  }
+  
+  .day-cell.has-moment .day-number {
+    color: #0E7FDA;
+    font-weight: 500;
+  }
+  
+  .moment-thumb {
+    width: 100%;
+    flex: 1;
+    min-height: 0;
+    margin-top: 3px;
+    border-radius: 3px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    box-shadow: 0 2px 14px rgba(62, 96, 112, 0.12);
+    background: #F0EDE8;
+  }
+  
+  .moment-placeholder {
+    width: 100%;
+    flex: 1;
+    min-height: 0;
+    margin-top: 3px;
+    border-radius: 3px;
+    background: #F0EDE8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    box-shadow: 0 2px 14px rgba(62, 96, 112, 0.12);
+  }
+  
+  .moment-placeholder svg {
+    opacity: 0.2;
+  }
+  
+  .lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .lightbox.open {
+    display: flex;
+  }
+  
+  .lightbox-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(19, 15, 12, 0.5);
+    backdrop-filter: blur(6px);
+    cursor: pointer;
+  }
+  
+  .lightbox-card {
+    position: relative;
+    z-index: 1;
+    background: #ffffff;
+    border-radius: 16px;
+    width: 460px;
+    overflow: hidden;
+    box-shadow: 0 24px 64px rgba(19, 15, 12, 0.22);
+    animation: pop-in 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  
+  @keyframes pop-in {
+    from { opacity: 0; transform: scale(0.92) translateY(12px); }
+    to   { opacity: 1; transform: scale(1)    translateY(0); }
+  }
+  
+  .lightbox-close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    z-index: 2;
+    background: rgba(255, 255, 255, 0.85);
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    font-size: 13px;
+    cursor: pointer;
+    color: #130F0C;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.15s;
+  }
+  
+  .lightbox-close:hover {
+    background: #D6DFE6;
+  }
+  
+  .lightbox-image-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    background: #F0EDE8;
+    overflow: hidden;
+  }
+  
+  #lightbox-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  
+  .lightbox-date-badge {
+    position: absolute;
+    bottom: 14px;
+    left: 14px;
+    background: #0a5fa3;
+    color: #F0EDE8;
+    font-family: 'bickham-script-pro', 'Cormorant Garamond', Georgia, serif;
+    font-size: 30px;
+    font-weight: 400;
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    padding-top: 8px;
+    justify-content: center;
+    text-align: center;
+    line-height: 1;
+    border-radius: 3px;
+  }
+  
+  .lightbox-body {
+    padding: 20px 26px 28px;
+  }
+  
+  .lightbox-day {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 9px;
+    font-weight: 400;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: #A8BFC9;
+    margin-bottom: 6px;
+  }
+  
+  .lightbox-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 28px;
+    font-weight: 300;
+    margin-bottom: 10px;
+    color: #130F0C;
+    line-height: 1.15;
+  }
+  
+  .lightbox-desc {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 14px;
+    font-weight: 300;
+    font-style: italic;
+    color: #0E7FDA;
+    line-height: 1.75;
+  }

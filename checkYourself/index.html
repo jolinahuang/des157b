@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>May 2026 — My Favorite Moments</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="wrapper">
+    <header class="site-header">
+      <p class="eyebrow">a month in memories</p>
+      <h1><span class="h1-month">May</span> <span class="h1-year">2026</span></h1>
+    </header>
+
+    <main>
+      <div class="calendar" id="calendar">
+        <div class="calendar-header">
+          <span>Sun</span>
+          <span>Mon</span>
+          <span>Tue</span>
+          <span>Wed</span>
+          <span>Thu</span>
+          <span>Fri</span>
+          <span>Sat</span>
+        </div>
+        <div class="calendar-grid" id="calendar-grid">
+          
+        </div>
+      </div>
+    </main>
+
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Memory detail">
+      <div class="lightbox-backdrop" id="lightbox-backdrop"></div>
+      <div class="lightbox-card">
+        <button class="lightbox-close" id="lightbox-close" aria-label="Close">&#x2715;</button>
+        <div class="lightbox-image-wrap">
+          <img src="" alt="" id="lightbox-img">
+          <div class="lightbox-date-badge" id="lightbox-date-badge"></div>
+        </div>
+        <div class="lightbox-body">
+          <p class="lightbox-day" id="lightbox-day"></p>
+          <h2 class="lightbox-title" id="lightbox-title"></h2>
+          <p class="lightbox-desc" id="lightbox-desc"></p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
